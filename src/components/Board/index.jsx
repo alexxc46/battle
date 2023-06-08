@@ -14,7 +14,7 @@ const Board = () => {
       {Array.from({ length: rows }).map((_, rowIndex) => (
         <div className="row" key={rowIndex}>
           {Array.from({ length: cols }).map((_, colIndex) => (
-            <Cell key={`${rowIndex}-${colIndex}`} x={colIndex} y={rowIndex} isHidden={isHidden(colIndex, rowIndex)} />
+            <Cell key={`${colIndex}-${rowIndex}`} x={rowIndex} y={colIndex} isHidden={isHidden(rowIndex, colIndex)} />
           ))}
         </div>
       ))}

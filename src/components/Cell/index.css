@@ -1,5 +1,7 @@
 .cell {
     height: 10%;
-    aspect-ratio: 1 / 1;
     border: 1px solid grey;
+}
+.not-active {
+    visibility: hidden;
 }

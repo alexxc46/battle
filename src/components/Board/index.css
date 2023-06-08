@@ -1,0 +1,7 @@
+
+.board {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid green;
+    display: flex;
+}

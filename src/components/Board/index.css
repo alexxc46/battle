@@ -2,10 +2,18 @@
 .board {
     height: 90%;
     aspect-ratio: 1 / 1;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
 .row {
     height: 10%;
     width: 100%;
     display: flex;
+    border-bottom: 1px solid grey;
+}
+
+/* .row:nth-child(even) .cell:nth-child(even), .row:nth-child(odd) .cell:nth-child(odd) {
+    border: 1px solid grey;
+  } */
+.row:first-child {
+    border-top: 1px solid grey;
 }

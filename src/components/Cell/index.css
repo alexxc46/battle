@@ -1,7 +1,10 @@
 .cell {
     height: 100%;
     width: 10%;
-    border: 1px solid grey;
+    border-right: 1px solid grey;
+}
+.cell:first-child {
+    border-left: 1px solid grey;
 }
 .not-active {
     visibility: hidden;

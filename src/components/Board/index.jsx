@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Cell from '../Cell';
 import './index.css';
 
@@ -8,27 +8,27 @@ const Board = () => {
 
   const [clickedCell, setClickedCell] = useState(null);
 
-  // useEffect(() => {
-  //   console.log(clickedCell)
-  // }, [clickedCell])
-
-  const handleClick = (x, y, evt) => {
-    console.log('event happened')
-    // event.stopPropagation(); // Stop event propagation to the board
-    // setClickedCell({ x, y });
+  const handleClick = (x, y) => {
+    console.log('Cell clicked:', x, y);
+    setClickedCell({ x, y });
   };
 
   return (
-    <div className="board" onClick={() => console.log('click on the board fierfd')}>
+    <div className="board" onClick={() => setClickedCell(null)}>
       {Array.from({ length: rows }).map((_, rowIndex) => (
         <div className="row" key={rowIndex}>
           {Array.from({ length: cols }).map((_, colIndex) => (
-            <Cell key={`${rowIndex}-${colIndex}`} x={rowIndex} y={colIndex} />
+            <Cell
+              key={`${rowIndex}-${colIndex}`}
+              x={rowIndex}
+              y={colIndex}
+              onClick={handleClick}
+            />
           ))}
         </div>
       ))}
     </div>
   );
-}
+};
 
 export default Board;

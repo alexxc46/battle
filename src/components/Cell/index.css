@@ -6,6 +6,9 @@
 .cell:first-child {
     border-left: 1px solid grey;
 }
-.not-active {
+.is-hidden {
     visibility: hidden;
+}
+.cell.is-active {
+    background-color: brown;
 }

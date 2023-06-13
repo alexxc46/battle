@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Cell from '../Cell';
-import './index.css';
+import './index.scss';
 
 const Board = () => {
   const rows = 10;
@@ -10,8 +10,8 @@ const Board = () => {
 
   // reference to this function is passed to a component and called from there
   const handleClick = (x, y, isHidden) => {
-    console.log('Cell clicked:', x, y);
-    !!isHidden && console.log('The cell IS HIDDEN')
+    if(!!isHidden) return 
+    
     setClickedCell({ x, y });
   }
 

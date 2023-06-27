@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Cell from '../Cell';
 import shuffleFigures from './shuffleFigures';
 import './index.scss';
@@ -8,7 +8,7 @@ const Board = () => {
   const cols = 10; 
 
   const [clickedCell, setClickedCell] = useState([]);
-  const [cells, setCells] = useState(getInitialCells());
+  const [cells, setCells] = useState([]);
 
   // reference to this function is passed to a component and called from there
   const handleClick = (x, y, isHidden) => {
@@ -17,10 +17,13 @@ const Board = () => {
     setClickedCell({ x, y });
   }
 
+  useEffect(() => {
+    setCells(getInitialCells())
+  }, [])
+
   // Generate initial cells with shuffled figures
   function getInitialCells() {
     const { player1Figures, player2Figures } = shuffleFigures();
-    console.log(player1Figures[0]);
     const cells = [];
 
     for (let i = 0; i < rows; i++) {

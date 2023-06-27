@@ -14,20 +14,29 @@ export default function shuffleFigures() {
       { title: 'Flag', power: 0, count: 1 },
     ];
 
-    const shuffledFigures = figures.reduce((arr, figure) => {
-      for (let i = 0; i < figure.count; i++) {
-        arr.push({ title: figure.title });
-      }
-      return arr;
-    }, []);
-
-    for (let i = shuffledFigures.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [shuffledFigures[i], shuffledFigures[j]] = [shuffledFigures[j], shuffledFigures[i]];
+    const addFiguresToArray = () => {
+        return figures.reduce((arr, figure) => {
+            for (let i = 0; i < figure.count; i++) {
+              arr.push({ title: figure.title });
+            }
+            return arr;
+          }, [])
     }
 
-    const player1Figures = shuffledFigures.slice(0, 40);
-    const player2Figures = shuffledFigures.slice(40, 80);
+    const shuffle = () => {
+        const fa = addFiguresToArray()
+
+        for (let i = fa.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [fa[i], fa[j]] = [fa[j], fa[i]];
+        }
+
+        return fa;
+    }
+
+    const player1Figures = shuffle().slice(0, 40);
+    const player2Figures = shuffle().slice(0, 40);
+
 
     return { player1Figures, player2Figures };
   }

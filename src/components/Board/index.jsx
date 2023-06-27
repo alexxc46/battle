@@ -32,7 +32,7 @@ const Board = () => {
         let figure = null;
         if (i < 4) {
           figure = player1Figures.pop();
-        } else if (i > 5) {
+        } else if (i > 5) {          
           figure = player2Figures.pop();
         }
         cells[i][j] = { x: i, y: j, figure };
